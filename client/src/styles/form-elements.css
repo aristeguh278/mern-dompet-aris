@@ -1,0 +1,53 @@
+input ,select,textarea ,input{
+    border:1px solid rgb(210, 207, 207);
+    padding:8px 10px;
+    outline:none;
+    border-radius:3px;
+    color:var(--black) !important;
+    font-size: 1.25em;
+    width: 100% !important;
+}
+
+input:focus ,select:focus,textarea:focus{ 
+    outline: none !important;
+    border: 1px solid var(--darker-primary) !important;
+    font-weight: bold;
+    font-size: 1.2em;
+    /* box-shadow: 0 0 7px var(--primary) !important; */
+ }
+
+
+
+ .primary-contained-btn{
+    border:none;
+    outline:none;
+    color:#fff;
+    padding: 12px 20px;
+    max-height: 120px !important ;
+    background-color: var(--primary);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+ }
+
+ .input {
+    border-top-style: hidden !important;
+    border-right-style: hidden !important;
+    border-left-style: hidden !important;
+    border-bottom-style:hidden !important ;
+    
+  }
+.input:focus {
+    border: none !important;
+    outline: none !important;
+  }
+
+  .input-password{
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        border:1px solid rgb(210, 207, 207);
+        padding-right: 9px;
+  
+  }
