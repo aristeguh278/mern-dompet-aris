@@ -33,31 +33,31 @@ const DefaultLayout = ({ children }) => {
   const userMenu = [
     {
       title: "Home",
-      icon: <i class="ri-home-line"></i>,
+      icon: <i className="ri-home-line"></i>,
       onClick: () => navigate("/"),
       path: "/",
     },
     {
       title: "Transactions",
-      icon: <i class="ri-bank-line"></i>,
+      icon: <i className="ri-bank-line"></i>,
       onClick: () => navigate("/transaction"),
       path: "/transaction",
     },
     {
       title: "Request",
-      icon: <i class="ri-hand-heart-line"></i>,
+      icon: <i className="ri-hand-heart-line"></i>,
       onClick: () => navigate("/transaction"),
       path: "/transaction",
     },
     {
       title: "Profile",
-      icon: <i class="ri-user-settings-line"></i>,
+      icon: <i className="ri-user-settings-line"></i>,
       onClick: () => navigate("/profile"),
       path: "/profile",
     },
     {
       title: "Logout",
-      icon: <i class="ri-hand-heart-line"></i>,
+      icon: <i className="ri-hand-heart-line"></i>,
       onClick: () => {
         localStorage.removeItem("token");
         navigate("/login");
@@ -69,37 +69,37 @@ const DefaultLayout = ({ children }) => {
   const adminMenu = [
     {
       title: "Home",
-      icon: <i class="ri-home-line"></i>,
+      icon: <i className="ri-home-line"></i>,
       onClick: () => navigate("/"),
       path: "/",
     },
     {
       title: "Users",
-      icon: <i class="ri-file-user-line"></i>,
+      icon: <i className="ri-file-user-line"></i>,
       onClick: () => navigate("/users"),
       path: "/users",
     },
     {
       title: "Transactions",
-      icon: <i class="ri-bank-line"></i>,
+      icon: <i className="ri-bank-line"></i>,
       onClick: () => navigate("/transaction"),
       path: "/transaction",
     },
     {
       title: "Request",
-      icon: <i class="ri-hand-heart-line"></i>,
+      icon: <i className="ri-hand-heart-line"></i>,
       onClick: () => navigate("/request"),
       path: "/request",
     },
     {
       title: "Profile",
-      icon: <i class="ri-user-settings-line"></i>,
+      icon: <i className="ri-user-settings-line"></i>,
       onClick: () => navigate("/profile"),
       path: "/profile",
     },
     {
       title: "Logout",
-      icon: <i class="ri-hand-heart-line"></i>,
+      icon: <i className="ri-hand-heart-line"></i>,
       onClick: () => {
         localStorage.removeItem("token");
         navigate("/login");
@@ -113,10 +113,11 @@ const DefaultLayout = ({ children }) => {
         {/* MENU ITEM */}
         <img style={{ maxWidth: collapsed ? "80px" : 180 }} src={collapsed ? logoCollapse : logo} />
         <div className={collapsed ? "menu-collapse" : "menu"}>
-          {adminMenu.map((item) => {
+          {adminMenu.map((item, index) => {
             const isActive = window.location.pathname === item.path;
             return (
               <div
+                key={index}
                 onClick={item.onClick}
                 className={`${collapsed ? "menu-item-collapse" : "menu-item"} ${
                   isActive ? "active-menu-item" : ""
@@ -162,7 +163,7 @@ const DefaultLayout = ({ children }) => {
             {collapsed ? (
               <i
                 onClick={() => setCollapsed(!collapsed)}
-                class="ri-close-circle-line"
+                className="ri-close-circle-line"
                 style={{ fontSize: "20px", fontWeight: "bold" }}
               />
             ) : (
@@ -182,7 +183,7 @@ const DefaultLayout = ({ children }) => {
               justifyContent: "space-between",
               alignItems: "center",
             }}>
-            <i class="ri-notification-3-line" style={{ fontSize: "25px" }}></i>
+            <i className="ri-notification-3-line" style={{ fontSize: "25px" }}></i>
             <div className="vl" />
 
             <Dropdown

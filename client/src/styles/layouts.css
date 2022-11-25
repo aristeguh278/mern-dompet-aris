@@ -5,6 +5,18 @@
     /* gap:15px; */
 }
 
+.mt-1{
+    margin-top: 10px;
+}
+
+.mt-2{
+    margin-top: 20px;
+}
+
+.mt-3{
+    margin-top: 30px;
+}
+
 .image{
     width: 35px;
     height: 35px;
@@ -194,15 +206,16 @@ h5 {
 .content{
    
     padding: 10px 20px;
-    width: 80vw;
+    width: 74vw;
     margin-top: 1.5rem;
     margin-left: 1.75rem;
-    min-height: 80vh;
-    min-width: 72vw;
+    min-height: 77vh;
+    
     box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
     background-color: white;
     padding: 20px 15px;
     border-radius: 10px;
+   
 }
 
 .content-collapse{
@@ -210,7 +223,8 @@ h5 {
     margin-top: 1.5rem;
     margin-left: 1.75rem;
     min-height: 80vh;
-    min-width: 72vw;
+ 
+    max-width: 77vw !important;
     box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
     background-color: white;
     padding: 20px 15px;

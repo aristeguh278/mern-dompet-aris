@@ -1,11 +1,15 @@
 :root{
     --primary:#335ef7;
     --darker-primary:#344da7;
-    --secondary:#61c49e;
+    --secondary:#48ab85;
     --gold:#f4a42b;
     --green:#bff5e2;
     --black:#34364a;
     --bg-color:#f6f8fd;
+}
+
+.text-green{
+    color:var(--secondary);
 }
 
 .bg-color{
@@ -35,3 +39,4 @@
 .text-white{
     color:white;
 }
+

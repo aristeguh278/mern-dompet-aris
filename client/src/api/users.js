@@ -27,3 +27,12 @@ export const GetUserInfo = async () => {
     return error.response.data;
   }
 };
+
+export const GetAllUsers = async () => {
+  try {
+    const { data } = await axiosInstance.post("/auth/get-all-users");
+    return data;
+  } catch (error) {
+    return error.response.data;
+  }
+};

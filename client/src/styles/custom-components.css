@@ -8,6 +8,36 @@
     z-index: 3;
 }
 
+.primary{
+    background: rgb(30, 77, 183);
+    color:white;
+}
+
+.contained-btn{
+  
+    cursor: pointer;
+    border-radius: 5px;
+    border:none;
+    outline: none;
+    padding: 10px 18px;
+}
+
+.outline-btn{
+    cursor: pointer;
+    border-radius: 5px;
+    border:none;
+    outline: none;
+    padding: 10px 18px;
+    background: white;
+    border:2px solid rgb(30, 77, 183);
+    color: rgb(30, 77, 183);
+    font-weight: bold;
+}
+
+table{
+    border:1px solid rgb(201, 211, 236);
+}
+
 .loader{
     height: 50px;
     width: 50px;

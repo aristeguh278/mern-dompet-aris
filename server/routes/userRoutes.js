@@ -62,4 +62,21 @@ router.post("/get-user-info", authMiddleware, async (req, res) => {
     });
   }
 });
+
+router.post("/get-all-users", authMiddleware, async (req, res) => {
+  try {
+    const users = await User.find();
+    res.send({
+      message: "User info fetchd successfully",
+      data: users,
+      success: true,
+    });
+  } catch (error) {
+    res.send({
+      message: error.message,
+
+      success: false,
+    });
+  }
+});
 module.exports = router;
