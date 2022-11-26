@@ -135,22 +135,23 @@ const DefaultLayout = ({ children }) => {
             );
           })}
         </div>
+        {!collapsed && (
+          <div className="box-sidebar">
+            <img
+              className="box-image"
+              src="https://demos.wrappixel.com/free-admin-templates/react/flexy-react-free/main/static/media/sidebar-buynow.b08d6a6e.png"
+              alt="/free-admin-templates/react/flexy-react-free/main/static/media/sidebar-buynow.b08d6a6e.png"
+            />
 
-        <div className="box-sidebar">
-          <img
-            className="box-image"
-            src="https://demos.wrappixel.com/free-admin-templates/react/flexy-react-free/main/static/media/sidebar-buynow.b08d6a6e.png"
-            alt="/free-admin-templates/react/flexy-react-free/main/static/media/sidebar-buynow.b08d6a6e.png"
-          />
+            <h5 className="text-box">
+              <strong>Dompet Aris</strong> MERN STACK
+            </h5>
 
-          <h5 className="text-box">
-            <strong>Dompet Aris</strong> MERN STACK
-          </h5>
-
-          <Button type="primary" danger>
-            Logout
-          </Button>
-        </div>
+            <Button type="primary" danger>
+              Logout
+            </Button>
+          </div>
+        )}
       </div>
       <div className="body">
         <div

@@ -72,14 +72,16 @@ const TransferFundsModal = ({ showModal, setShowModal, reloadData }) => {
         <Form layout="vertical" form={form} onFinish={onFinish}>
           <div className="flex gap-2 items-center">
             <Form.Item label="Account Number" name="receiver" className="w-100">
-              <input type="text" />
+              <input type="text" disabled={isVerified === "true"} />
             </Form.Item>
-            <button
-              type="button"
-              className="verify primary contained-btn mt-1"
-              onClick={verifyAccount}>
-              Verify
-            </button>
+            {isVerified !== "true" && (
+              <button
+                type="button"
+                className="verify primary contained-btn mt-1"
+                onClick={verifyAccount}>
+                Verify
+              </button>
+            )}
           </div>
 
           {isVerified === "true" && (
@@ -103,16 +105,16 @@ const TransferFundsModal = ({ showModal, setShowModal, reloadData }) => {
               </div>
               <div className="mt-1">
                 <div className="flex justify-end gap-1" style={{ justifyContent: "flex-end" }}>
-                  <button className="primary outline-btn">Cancel</button>
+                  <button className="primary outline-btn" onClick={handleClose}>
+                    Cancel
+                  </button>
                   {/* {Number(form.getFieldValue("amount")) < balance && ( */}
                   <button className="primary contained-btn">Transfer</button>
                   {/* )} */}
-                  {JSON.stringify(Number(form.getFieldValue("amount")))}
                 </div>
               </div>
             </div>
           )}
-          {isVerified === "false" && <h5>Invalid account</h5>}
         </Form>
       </Modal>
     </div>

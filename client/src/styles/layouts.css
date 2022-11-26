@@ -122,6 +122,9 @@
     transition: 0.5s;
     scrollbar-color: #d4aa70 #e4e4e4;
     transition: scrollbar-color 0.3s ease-out;
+    z-index: 3; /* Stay on top */
+    overflow-x: hidden;
+    position: fixed;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -152,9 +155,12 @@
      left: 0px;
      border-right: 1px solid rgba(0, 0, 0, 0.12);
     box-shadow: none;
-    overflow-y: auto;
+    overflow-y: hidden;
     display: flex;
     flex-direction: column;
+    position: fixed;
+    max-width: 130px;
+    z-index: 3;
 }
 
 .box-sidebar{
@@ -187,27 +193,35 @@ h5 {
     position: relative;
     max-width: 110px;
 }
-
+.header{
+    margin-left: 240px;
+    margin-bottom: 20px !important;
+}
 
 .header,.header-collapse{
     min-height: 70px;
+    animation-duration: 1s;
     width: 83vw;
     padding: 0px 30px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     background-color: white;
-
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .header-collapse{
-    width: 93vw !important;
- 
+    width: 92vw !important;
+    margin-left: 100px;
+    z-index: 2;
 }
 
 .content{
-   
+    margin-left: 290px !important;
     padding: 10px 20px;
-    width: 74vw;
-    margin-top: 1.5rem;
+    max-width: 77vw !important;
+    margin-top: 1.65rem;
     margin-left: 1.75rem;
     min-height: 77vh;
     
@@ -215,16 +229,15 @@ h5 {
     background-color: white;
     padding: 20px 15px;
     border-radius: 10px;
-   
+    animation-duration: 1s;
 }
 
 .content-collapse{
-    width: 90vw !important;
     margin-top: 1.5rem;
-    margin-left: 1.75rem;
+    animation-duration: 1s;
+    margin-left: 150px;
     min-height: 80vh;
- 
-    max-width: 77vw !important;
+    max-width: 85vw !important;
     box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
     background-color: white;
     padding: 20px 15px;
@@ -247,12 +260,15 @@ h5 {
        
         /* z-index: 5; */
         overflow: hidden;
+        margin-left: 0px !important;
+        margin-bottom: 10px;
       }
     .sidebar{
         display: none;
     }
     .content{
         width: 90% !important;
+        margin-left: 0px !important;
     }
   }
 

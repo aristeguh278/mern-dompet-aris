@@ -6,9 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { HideLoading, ShowLoading } from "../redux/loaderSlice";
 import { GetTransactionsOfUser } from "../api/transactions";
 import moment from "moment";
+import DepositModal from "../components/DepositModal";
 
 const Transaction = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showDepositModal, setShowDepositModal] = useState(false);
   const [data, setData] = useState([]);
   const { user } = useSelector((state) => state.users);
   const columns = [
@@ -24,10 +26,10 @@ const Transaction = () => {
       title: "Amount",
       //dataIndex: "amount",
       render: (text, record) => {
-        return record.sender._id === user._id ? (
-          <span style={{ color: "red", fontWeight: "bold" }}>- {record.amount}</span>
-        ) : (
+        return record.receiver._id === user._id ? (
           <span style={{ color: "green", fontWeight: "bold" }}>+ {record.amount}</span>
+        ) : (
+          <span style={{ color: "red", fontWeight: "bold" }}>- {record.amount}</span>
         );
       },
     },
@@ -42,16 +44,23 @@ const Transaction = () => {
       title: "Reference Account",
       dataIndex: "type",
       render: (text, record) => {
-        return record.sender === user._id ? (
+        return record.receiver._id === user._id ? (
           <span>
             <h1 className="text-sm">
-              {record.receiver.firstname} {record.receiver.lastname}
+              You
+              {record.receiver._id === record.sender._id ? (
+                <span> has already top up</span>
+              ) : (
+                <span>
+                  ,from {record.sender.firstname} {record.sender.lastname}
+                </span>
+              )}
             </h1>
           </span>
         ) : (
           <span>
             <h1 className="text-sm">
-              {record.receiver.firstname} {record.receiver.lastname}
+              to: {record.receiver.firstname} {record.receiver.lastname}
             </h1>
           </span>
         );
@@ -85,15 +94,25 @@ const Transaction = () => {
       <div className="flex justify-between items-center">
         <PageTitle title="Transaction" />
         <div className="flex gap-1">
-          <button className="outline-btn">Deposit</button>
+          <button className="outline-btn" onClick={() => setShowDepositModal(true)}>
+            Deposit
+          </button>
           <button className="primary contained-btn" onClick={() => setShowModal(true)}>
             Transfer
           </button>
         </div>
       </div>
-      <Table columns={columns} dataSource={data} className="mt-2" />
+      <Table columns={columns} dataSource={data} className="mt-2" pagination={{ pageSize: 6 }} />
 
       {showModal && <TransferFundsModal showModal={showModal} setShowModal={setShowModal} />}
+
+      {showDepositModal && (
+        <DepositModal
+          showDepositModal={showDepositModal}
+          setShowDepositModal={setShowDepositModal}
+          reloadData={getData}
+        />
+      )}
     </>
   );
 };
